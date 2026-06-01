@@ -2,7 +2,7 @@
   {
     "id": "b1",
     "name": "Glass Cannon",
-    "author": "System",
+    "author": "Dhia-Bechattaoui",
     "stats": {
       "hp": 50,
       "attack": 60,
@@ -13,7 +13,7 @@
   {
     "id": "b2",
     "name": "Tank Bot",
-    "author": "System",
+    "author": "Dhia-Bechattaoui",
     "stats": {
       "hp": 90,
       "attack": 20,

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { TriviaGame, DevQuest, CodeBotBattler } from '@/components/games';
+import { TriviaGame, DevQuest, CodeBotBattler, DevType } from '@/components/games';
 
 export default function GamesPage() {
   // Read Data
@@ -9,6 +9,7 @@ export default function GamesPage() {
   const rpgItems = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/items.json'), 'utf8'));
   const rpgQuests = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/quests.json'), 'utf8'));
   const bots = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/bots.json'), 'utf8'));
+  const snippets = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/snippets.json'), 'utf8'));
 
   return (
     <div className="space-y-8 pb-12">
@@ -48,6 +49,19 @@ export default function GamesPage() {
 
         <div className="w-full">
           <CodeBotBattler bots={bots} />
+        </div>
+      </section>
+
+      <section className="mt-12 border-t border-gray-200 dark:border-gray-800 pt-12">
+        <div className="mb-6 flex justify-between items-end">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">DevType (Code Speed Tester)</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Test your raw typing speed (WPM) and accuracy against actual community-submitted code snippets.</p>
+          </div>
+        </div>
+        
+        <div className="w-full">
+          <DevType snippets={snippets} />
         </div>
       </section>
 

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "s1",
+    "language": "JavaScript",
+    "author": "Dhia-Bechattaoui",
+    "code": "function calculateWPM(chars, time) {\n  const words = chars / 5;\n  return Math.round(words / time);\n}"
+  },
+  {
+    "id": "s2",
+    "language": "React",
+    "author": "Dhia-Bechattaoui",
+    "code": "const DevType = ({ snippets }) => {\n  const [input, setInput] = useState('');\n  return <div>{snippets[0].code}</div>;\n};"
+  },
+  {
+    "id": "s3",
+    "language": "CSS",
+    "author": "Dhia-Bechattaoui",
+    "code": ".terminal-glass {\n  background: rgba(0, 0, 0, 0.5);\n  backdrop-filter: blur(10px);\n  border: 1px solid white;\n}"
+  }
+]

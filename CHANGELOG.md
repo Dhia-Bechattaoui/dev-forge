@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-06-01
+
+### Added
+- **DevType (Code Typing Speed Tester)**: Launched a new data-driven typing game on the Games Hub! Contributors can add target code snippets to `data/snippets.json`. Features a highly visible, pulsing block cursor and auto-indentation on newlines to mimic a real code editor. 
+- **Live Net WPM & Accuracy Engine**: The DevType engine automatically tracks true "Net WPM" (permanently docking words-per-minute and accuracy scores for typos). WPM updates dynamically via an invisible background timer for smooth, real-time performance feedback without interval tearing.
+
 ## [1.3.0] - 2026-06-01
 
 ### Added
@@ -51,6 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Dynamic Dashboard UI**: Built `src/app/page.tsx` to automatically read and display contributor data and render advanced community components dynamically.
 - **Onboarding Documentation**: Added a comprehensive `README.md` and a step-by-step beginner `CONTRIBUTING.md` guide.
 
+[1.4.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.0.0...v1.1.0
