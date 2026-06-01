@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-06-01
+
+### Added
+- **CodeBot Auto-Battler**: Built an advanced, data-driven community game on the Games Hub. Contributors configure their own Bots via `data/bots.json`. The game features an Active Time Battle (ATB) engine where attack speeds scale proportionally with bot stats, complete with an auto-balancing mathematical normalizer, dodge mechanics, and Framer Motion impact animations.
+
 ## [1.2.0] - 2026-06-01
 
 ### Added
@@ -46,6 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Dynamic Dashboard UI**: Built `src/app/page.tsx` to automatically read and display contributor data and render advanced community components dynamically.
 - **Onboarding Documentation**: Added a comprehensive `README.md` and a step-by-step beginner `CONTRIBUTING.md` guide.
 
+[1.3.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/Dhia-Bechattaoui/dev-forge/releases/tag/v1.0.0

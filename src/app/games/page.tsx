@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { TriviaGame, DevQuest } from '@/components/games';
+import { TriviaGame, DevQuest, CodeBotBattler } from '@/components/games';
 
 export default function GamesPage() {
   // Read Data
@@ -8,6 +8,7 @@ export default function GamesPage() {
   const rpgMonsters = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/monsters.json'), 'utf8'));
   const rpgItems = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/items.json'), 'utf8'));
   const rpgQuests = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/quests.json'), 'utf8'));
+  const bots = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/bots.json'), 'utf8'));
 
   return (
     <div className="space-y-8 pb-12">
@@ -31,9 +32,22 @@ export default function GamesPage() {
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">A text-based RPG where every monster and item is contributed by the community.</p>
           </div>
         </div>
-        
+
         <div className="w-full">
           <DevQuest monsters={rpgMonsters} items={rpgItems} quests={rpgQuests} />
+        </div>
+      </section>
+
+      <section className="mt-12 border-t border-gray-200 dark:border-gray-800 pt-12">
+        <div className="mb-6 flex justify-between items-end">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">CodeBot Auto-Battler</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Configure your bot stats in JSON and simulate epic arena battles.</p>
+          </div>
+        </div>
+
+        <div className="w-full">
+          <CodeBotBattler bots={bots} />
         </div>
       </section>
 
@@ -44,7 +58,7 @@ export default function GamesPage() {
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Powered by {triviaQuestions.length} community questions from data/trivia.json</p>
           </div>
         </div>
-        
+
         <div className="w-full">
           <TriviaGame questions={triviaQuestions} />
         </div>
