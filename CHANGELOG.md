@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2026-06-01
 
 ### Added
+- **SEO & Social Graph Optimization**: Replaced default Next.js metadata in `layout.tsx` with highly optimized DevForge metadata. Added Open Graph (OG) and Twitter Card tags to ensure the platform URL unfurls into a beautiful preview card on social media (LinkedIn, Twitter, Discord).
 - **Automated UI Testing**: Integrated Vitest and React Testing Library (`jsdom`) to automatically test React components. Added `__tests__/DashboardStats.test.tsx` and updated the `validate.yml` GitHub Action to block any Pull Requests that fail the UI tests.
 - **Public Developer API**: Built a native Next.js 15 Route Handler (`/api/contributors`) that securely serves the open-source contributor database via a JSON endpoint with CORS headers. Added documentation in the README for external integrations.
 - **Global Analytics Banner**: Built a dynamic `DashboardStats` component that calculates and displays Total Contributors, Total Community Widgets, and the Top Tech Stack in real-time.
