@@ -1,0 +1,293 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Sword, Heart, Shield, RefreshCw, Box, Skull } from 'lucide-react';
+
+export interface Monster {
+  id: string;
+  name: string;
+  description: string;
+  hp: number;
+  attack: number;
+  author: string;
+}
+
+export interface Item {
+  id: string;
+  name: string;
+  description: string;
+  type: 'weapon' | 'heal';
+  value: number;
+  author: string;
+}
+
+export default function DevQuest({ monsters, items }: { monsters: Monster[], items: Item[] }) {
+  // Game State
+  const [playerHp, setPlayerHp] = useState(100);
+  const [maxHp, setMaxHp] = useState(100);
+  const [level, setLevel] = useState(1);
+  const [weapon, setWeapon] = useState<Item>({ 
+    id: 'w0', name: 'Fists', description: 'Just your bare hands.', type: 'weapon', value: 5, author: 'System' 
+  });
+  
+  // Encounter State
+  const [currentMonster, setCurrentMonster] = useState<Monster | null>(null);
+  const [monsterHp, setMonsterHp] = useState(0);
+  
+  // UI State
+  const [log, setLog] = useState<string[]>(['Welcome to DevQuest!', 'A new adventure begins...']);
+  const [gameState, setGameState] = useState<'exploring' | 'combat' | 'gameover'>('exploring');
+  const [damageAnim, setDamageAnim] = useState<{player: number|null, monster: number|null}>({player: null, monster: null});
+
+  const addLog = (msg: string) => {
+    setLog(prev => [msg, ...prev].slice(0, 5));
+  };
+
+  const spawnMonster = () => {
+    if (monsters.length === 0) return;
+    const randomIdx = Math.floor(Math.random() * monsters.length);
+    const baseMonster = monsters[randomIdx];
+    
+    // Scale monster by level
+    const scaledMonster = {
+      ...baseMonster,
+      hp: Math.floor(baseMonster.hp * (1 + level * 0.2)),
+      attack: Math.floor(baseMonster.attack * (1 + level * 0.1))
+    };
+    
+    setCurrentMonster(scaledMonster);
+    setMonsterHp(scaledMonster.hp);
+    setGameState('combat');
+    addLog(`A wild ${scaledMonster.name} appeared!`);
+  };
+
+  const findItem = () => {
+    if (items.length === 0) return;
+    const randomIdx = Math.floor(Math.random() * items.length);
+    const item = items[randomIdx];
+    
+    addLog(`You found a chest... It contains: ${item.name}!`);
+    
+    if (item.type === 'weapon') {
+      if (item.value > weapon.value) {
+        setWeapon(item);
+        addLog(`You equipped the ${item.name} (Attack: ${item.value}).`);
+      } else {
+        addLog(`It's weaker than your current weapon. You left it.`);
+      }
+    } else if (item.type === 'heal') {
+      const healAmt = item.value;
+      setPlayerHp(prev => Math.min(maxHp, prev + healAmt));
+      addLog(`You drank ${item.name} and healed ${healAmt} HP.`);
+    }
+  };
+
+  const handleExplore = () => {
+    // 70% chance monster, 30% chance item
+    if (Math.random() > 0.3) {
+      spawnMonster();
+    } else {
+      findItem();
+    }
+  };
+
+  const handleAttack = async () => {
+    if (!currentMonster || gameState !== 'combat') return;
+
+    // Player attacks
+    const playerDmg = weapon.value + Math.floor(Math.random() * 5);
+    const newMonsterHp = Math.max(0, monsterHp - playerDmg);
+    setMonsterHp(newMonsterHp);
+    setDamageAnim({ player: null, monster: playerDmg });
+    addLog(`You hit ${currentMonster.name} for ${playerDmg} damage!`);
+
+    setTimeout(() => setDamageAnim({ player: null, monster: null }), 500);
+
+    if (newMonsterHp === 0) {
+      // Monster defeated
+      setTimeout(() => {
+        addLog(`You defeated ${currentMonster.name}! You leveled up!`);
+        setLevel(l => l + 1);
+        setMaxHp(h => h + 10);
+        setPlayerHp(h => h + 10); // Heal slightly on level up
+        setGameState('exploring');
+        setCurrentMonster(null);
+      }, 1000);
+      return;
+    }
+
+    // Monster attacks back
+    setTimeout(() => {
+      const monsterDmg = currentMonster.attack + Math.floor(Math.random() * 3);
+      const newPlayerHp = Math.max(0, playerHp - monsterDmg);
+      setPlayerHp(newPlayerHp);
+      setDamageAnim({ player: monsterDmg, monster: null });
+      addLog(`${currentMonster.name} hit you for ${monsterDmg} damage!`);
+
+      setTimeout(() => setDamageAnim({ player: null, monster: null }), 500);
+
+      if (newPlayerHp === 0) {
+        setGameState('gameover');
+        addLog(`You were defeated by ${currentMonster.name}. Game Over.`);
+      }
+    }, 800);
+  };
+
+  const resetGame = () => {
+    setPlayerHp(100);
+    setMaxHp(100);
+    setLevel(1);
+    setWeapon({ id: 'w0', name: 'Fists', description: '', type: 'weapon', value: 5, author: 'System' });
+    setGameState('exploring');
+    setCurrentMonster(null);
+    setLog(['You respawned back at the beginning of the dungeon.']);
+  };
+
+  if (!monsters || monsters.length === 0) {
+    return <div className="p-8 text-center text-gray-500">No monsters loaded. Add data to data/rpg/monsters.json</div>;
+  }
+
+  return (
+    <div className="w-full max-w-3xl mx-auto bg-gray-900 text-gray-100 rounded-3xl shadow-xl overflow-hidden border border-gray-800 font-mono">
+      {/* Header Stats */}
+      <div className="bg-gray-950 p-4 sm:p-6 flex flex-wrap justify-between items-center gap-4 border-b border-gray-800">
+        <div className="flex items-center gap-6">
+          <div>
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Player LVL {level}</p>
+            <div className="flex items-center gap-2 text-green-400 font-bold text-lg">
+              <Heart className="w-5 h-5 fill-green-400" /> 
+              {playerHp} / {maxHp} HP
+            </div>
+          </div>
+          <div>
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Weapon</p>
+            <div className="flex items-center gap-2 text-blue-400 font-bold">
+              <Sword className="w-5 h-5" /> 
+              {weapon.name} ({weapon.value} DMG)
+            </div>
+          </div>
+        </div>
+        
+        {gameState === 'gameover' && (
+          <button 
+            onClick={resetGame}
+            className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+          >
+            <RefreshCw className="w-4 h-4" /> Restart
+          </button>
+        )}
+      </div>
+
+      {/* Main Game Area */}
+      <div className="p-6 sm:p-8 min-h-[350px] flex flex-col relative bg-gray-900">
+        
+        {/* Battle Scene */}
+        <AnimatePresence mode="wait">
+          {gameState === 'exploring' && (
+            <motion.div 
+              key="exploring"
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="flex-1 flex flex-col items-center justify-center space-y-6"
+            >
+              <div className="p-6 bg-gray-800 rounded-2xl border border-gray-700 text-center">
+                <Box className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-2">The room is empty.</h3>
+                <p className="text-gray-400 text-sm">Do you want to move to the next room?</p>
+              </div>
+              
+              <button 
+                onClick={handleExplore}
+                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/20"
+              >
+                Search Next Room
+              </button>
+            </motion.div>
+          )}
+
+          {gameState === 'combat' && currentMonster && (
+            <motion.div 
+              key="combat"
+              initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}
+              className="flex-1 flex flex-col items-center justify-center space-y-8 w-full max-w-md mx-auto"
+            >
+              <div className="w-full relative">
+                {damageAnim.monster !== null && (
+                  <motion.div 
+                    initial={{ opacity: 1, y: 0, scale: 1 }} animate={{ opacity: 0, y: -50, scale: 1.5 }}
+                    className="absolute -top-12 left-1/2 -translate-x-1/2 text-2xl font-bold text-red-500 z-10"
+                  >
+                    -{damageAnim.monster}
+                  </motion.div>
+                )}
+                
+                {damageAnim.player !== null && (
+                  <motion.div 
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                    className="absolute inset-0 bg-red-500/20 rounded-2xl z-0"
+                  />
+                )}
+                
+                <div className={`p-6 bg-gray-800 rounded-2xl border border-gray-700 text-center relative z-10 transition-transform ${damageAnim.monster !== null ? 'translate-x-2' : ''}`}>
+                  <Skull className="w-16 h-16 text-red-400 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-red-400 mb-1">{currentMonster.name}</h3>
+                  <p className="text-sm text-gray-400 mb-4">"{currentMonster.description}"</p>
+                  
+                  {/* Monster HP Bar */}
+                  <div className="w-full bg-gray-900 rounded-full h-3 mb-1 overflow-hidden">
+                    <motion.div 
+                      className="bg-red-500 h-3" 
+                      initial={{ width: '100%' }}
+                      animate={{ width: `${(monsterHp / currentMonster.hp) * 100}%` }}
+                    />
+                  </div>
+                  <p className="text-xs text-gray-500 text-right">{monsterHp} / {currentMonster.hp} HP</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 w-full">
+                <button 
+                  onClick={handleAttack}
+                  disabled={damageAnim.player !== null || damageAnim.monster !== null || monsterHp === 0}
+                  className="flex-1 py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-bold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg shadow-red-900/20 flex items-center justify-center gap-2"
+                >
+                  <Sword className="w-5 h-5" /> Attack
+                </button>
+              </div>
+              <p className="text-xs text-gray-500">Contributed by @{currentMonster.author}</p>
+            </motion.div>
+          )}
+
+          {gameState === 'gameover' && (
+            <motion.div 
+              key="gameover"
+              initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+              className="flex-1 flex flex-col items-center justify-center text-center"
+            >
+              <Skull className="w-24 h-24 text-gray-700 mb-6" />
+              <h2 className="text-4xl font-bold text-red-500 mb-2">YOU DIED</h2>
+              <p className="text-gray-400 mb-8">You reached Level {level}. The community was too strong.</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Combat Log */}
+      <div className="bg-gray-950 p-4 border-t border-gray-800 h-40 overflow-y-auto">
+        <p className="text-xs text-gray-600 uppercase tracking-wider mb-2 font-bold">Action Log</p>
+        <div className="space-y-1">
+          {log.map((entry, idx) => (
+            <motion.div 
+              key={`${entry}-${idx}`}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              className={`text-sm ${idx === 0 ? 'text-gray-200' : 'text-gray-500'}`}
+            >
+              {idx === 0 ? '> ' : '  '}{entry}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

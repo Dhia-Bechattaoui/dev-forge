@@ -1,0 +1,46 @@
+[
+  {
+    "question": "Which programming language was created by Brendan Eich in 1995?",
+    "options": [
+      "Java",
+      "JavaScript",
+      "Python",
+      "C++"
+    ],
+    "answer": "JavaScript",
+    "author": "Dhia-Bechattaoui"
+  },
+  {
+    "question": "What does CSS stand for?",
+    "options": [
+      "Computer Style Sheets",
+      "Creative Style System",
+      "Cascading Style Sheets",
+      "Colorful Style Sheets"
+    ],
+    "answer": "Cascading Style Sheets",
+    "author": "Dhia-Bechattaoui"
+  },
+  {
+    "question": "In Git, which command is used to save your changes to the local repository?",
+    "options": [
+      "git push",
+      "git save",
+      "git store",
+      "git commit"
+    ],
+    "answer": "git commit",
+    "author": "Dhia-Bechattaoui"
+  },
+  {
+    "question": "Which of these is a hook introduced in React 16.8?",
+    "options": [
+      "useEffect",
+      "useReact",
+      "useDOM",
+      "useFetch"
+    ],
+    "answer": "useEffect",
+    "author": "Dhia-Bechattaoui"
+  }
+]

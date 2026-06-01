@@ -1,0 +1,26 @@
+[
+  {
+    "id": "m1",
+    "name": "Syntax Error Slime",
+    "description": "A gooey mass of missing semicolons.",
+    "hp": 20,
+    "attack": 5,
+    "author": "Dhia-Bechattaoui"
+  },
+  {
+    "id": "m2",
+    "name": "The Memory Leak",
+    "description": "It slowly consumes all available RAM... and your health.",
+    "hp": 35,
+    "attack": 8,
+    "author": "Dhia-Bechattaoui"
+  },
+  {
+    "id": "m3",
+    "name": "Merge Conflict Dragon",
+    "description": "A terrifying beast with two heads that disagree on everything.",
+    "hp": 50,
+    "attack": 12,
+    "author": "Dhia-Bechattaoui"
+  }
+]

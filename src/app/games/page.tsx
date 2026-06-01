@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
-import { TriviaGame } from '@/components/games';
+import { TriviaGame, DevQuest } from '@/components/games';
 
 export default function GamesPage() {
-  const dataPath = path.join(process.cwd(), 'data/trivia.json');
-  const fileContents = fs.readFileSync(dataPath, 'utf8');
-  const triviaQuestions = JSON.parse(fileContents);
+  // Read Data
+  const triviaQuestions = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/trivia.json'), 'utf8'));
+  const rpgMonsters = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/monsters.json'), 'utf8'));
+  const rpgItems = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/items.json'), 'utf8'));
 
   return (
     <div className="space-y-8 pb-12">
@@ -17,6 +18,19 @@ export default function GamesPage() {
           Learn by playing, learn by contributing! Our games are powered entirely by open-source data. Add a question to the JSON files to expand the games.
         </p>
       </header>
+
+      <section className="mt-12">
+        <div className="mb-6 flex justify-between items-end">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">DevQuest: The RPG</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">A text-based RPG where every monster and item is contributed by the community.</p>
+          </div>
+        </div>
+        
+        <div className="w-full">
+          <DevQuest monsters={rpgMonsters} items={rpgItems} />
+        </div>
+      </section>
 
       <section className="mt-16">
         <div className="mb-6 flex justify-between items-end">

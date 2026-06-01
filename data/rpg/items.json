@@ -1,0 +1,26 @@
+[
+  {
+    "id": "i1",
+    "name": "Rusty Keyboard",
+    "description": "It's missing the Esc key, but it hits hard.",
+    "type": "weapon",
+    "value": 10,
+    "author": "Dhia-Bechattaoui"
+  },
+  {
+    "id": "i2",
+    "name": "Mechanical Switch Sword",
+    "description": "Click clack! Extra loud damage.",
+    "type": "weapon",
+    "value": 18,
+    "author": "Dhia-Bechattaoui"
+  },
+  {
+    "id": "i3",
+    "name": "Stack Overflow Potion",
+    "description": "Heals a lot of HP, but leaves you confused.",
+    "type": "heal",
+    "value": 25,
+    "author": "Dhia-Bechattaoui"
+  }
+]

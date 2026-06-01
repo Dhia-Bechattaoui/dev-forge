@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { AlgorithmVisualizer } from '../components/community';
+import AlgorithmVisualizer from '../components/community/AlgorithmVisualizer';
 
 // Mock framer-motion to bypass animations in JSDOM
 vi.mock('framer-motion', async () => {
