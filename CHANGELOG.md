@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-06-01
+
+### Added
+- **Dark Mode Support**: Fully integrated `next-themes` and added a custom `ThemeToggle` component to the dashboard header. Fixed global Tailwind CSS v4 variables to support manual dark mode toggling.
+- **Advanced Animations**: Installed `framer-motion` to add smooth, premium entry and hover animations to the main dashboard layout and contributor cards.
+- **Interactive Community Widget**: Built the `GithubStatsCard`, which fetches and displays real-time GitHub repository and follower counts from the GitHub API. Added it to the Advanced Component Showcase.
+- **Automated Welcome Bot**: Created a new GitHub Action (`welcome-bot.yml`) that automatically comments on new Pull Requests to warmly welcome contributors.
+
 ## [1.0.0] - 2026-06-01
 
 ### Added

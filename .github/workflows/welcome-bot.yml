@@ -1,0 +1,19 @@
+name: Welcome New Contributor
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 **Welcome to DevForge!**\n\nThank you so much for opening your Pull Request! Our automated systems are currently checking your code to ensure everything is perfectly formatted.\n\nIf everything looks good, your PR will be automatically merged and your profile will appear on the live website shortly!\n\n*(If you encounter any failing checks, click the "Details" button below to see what went wrong, or ask for help here!)*'
+            })
