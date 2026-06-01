@@ -26,22 +26,20 @@ const mockContributors = [
 
 describe('DashboardStats Component', () => {
   it('renders the stat cards without crashing', () => {
-    render(<DashboardStats contributors={mockContributors} totalComponents={5} />);
+    render(<DashboardStats contributors={mockContributors} totalComponents={5} rpgCount={10} triviaCount={15} />);
     
     expect(screen.getByText('Total Contributors')).toBeDefined();
     expect(screen.getByText('Community Widgets')).toBeDefined();
-    expect(screen.getByText('Top Tech Stack')).toBeDefined();
+    expect(screen.getByText('RPG Database Size')).toBeDefined();
+    expect(screen.getByText('Trivia Questions')).toBeDefined();
   });
 
-  it('calculates the correct total contributors', () => {
-    render(<DashboardStats contributors={mockContributors} totalComponents={5} />);
+  it('renders the correct values', () => {
+    render(<DashboardStats contributors={mockContributors} totalComponents={5} rpgCount={10} triviaCount={15} />);
     // We have 3 mock contributors
     expect(screen.getByText('3')).toBeDefined();
-  });
-
-  it('calculates the top tech stack correctly', () => {
-    render(<DashboardStats contributors={mockContributors} totalComponents={5} />);
-    // TypeScript appears twice, Python once. So TypeScript is the winner!
-    expect(screen.getByText('TypeScript')).toBeDefined();
+    expect(screen.getByText('5')).toBeDefined();
+    expect(screen.getByText('10')).toBeDefined();
+    expect(screen.getByText('15')).toBeDefined();
   });
 });

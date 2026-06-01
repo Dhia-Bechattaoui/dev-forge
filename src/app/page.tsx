@@ -18,6 +18,13 @@ export default function Home() {
   const fileContents = fs.readFileSync(dataPath, 'utf8');
   const contributors: Contributor[] = JSON.parse(fileContents);
 
+  // Load Game Data
+  const triviaCount = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/trivia.json'), 'utf8')).length;
+  const monstersCount = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/monsters.json'), 'utf8')).length;
+  const itemsCount = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/items.json'), 'utf8')).length;
+  const questsCount = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/quests.json'), 'utf8')).length;
+  const totalRpgElements = monstersCount + itemsCount + questsCount;
+
   return (
     <>
       <motion.header
@@ -34,7 +41,12 @@ export default function Home() {
         </p>
       </motion.header>
 
-      <DashboardStats contributors={contributors} totalComponents={communityComponents.length} />
+      <DashboardStats 
+        contributors={contributors} 
+        totalComponents={communityComponents.length} 
+        triviaCount={triviaCount}
+        rpgCount={totalRpgElements}
+      />
 
       <motion.div
         initial={{ opacity: 0 }}

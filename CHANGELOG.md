@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.2.0] - 2026-06-01
@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Dedicated Routes**: Created dedicated full-page routes for `/contributors` and `/showcase` to give community content more breathing room. Refactored the root `/` path into a clean Dashboard Overview.
 - **Git & GitHub Interactive Cheat Sheet**: Built a highly interactive, beginner-friendly community component featuring an animated Git Data Flow diagram, search filtering, categorized tabs, and one-click command copying. Fully tested with Vitest.
 - **Interactive Games Hub**: Created a new `/games` route and Sidebar link to serve as a hub for community-built interactive games.
+- **Dynamic Dashboard Stats**: Completely overhauled the root dashboard (`page.tsx`) to dynamically read from the JSON data. The `DashboardStats` component was updated to a 4-card grid layout that now displays live counts for the RPG Database Size and Trivia Questions.
 - **Public Game APIs**: Built and deployed open, CORS-enabled REST API endpoints (`/api/games/trivia`, `/api/games/rpg/monsters`, etc.) to allow external developers to fetch and use DevForge's community-driven data in their own applications.
 - **DevQuest (The Open-Source RPG)**: Built a turn-based RPG engine (`DevQuest.tsx`) on the Games Hub. The entire game universe is powered by community-contributed JSON files (`monsters.json`, `items.json`, `quests.json`). Features level-scaling, roguelike mechanics, Framer Motion combat animations, an interactive Backpack inventory system for manual item management, and real-time Quest tracking with automated reward drops.
 - **Algorithm Visualizer Sandbox**: Built an interactive sandbox (`AlgorithmVisualizer.tsx`) that visually animates sorting algorithms (like Bubble Sort) in real-time using Framer Motion. Features playback controls, speed adjustment, and dynamic highlighting.
@@ -44,3 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added `.agents/workflows/` defining the step-by-step build process for the AI assistant.
 - **Dynamic Dashboard UI**: Built `src/app/page.tsx` to automatically read and display contributor data and render advanced community components dynamically.
 - **Onboarding Documentation**: Added a comprehensive `README.md` and a step-by-step beginner `CONTRIBUTING.md` guide.
+
+[1.2.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/Dhia-Bechattaoui/dev-forge/releases/tag/v1.0.0

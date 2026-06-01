@@ -1,6 +1,6 @@
 'use client';
 
-import { Users, Component, Trophy } from 'lucide-react';
+import { Users, Component, BrainCircuit, Swords } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface Contributor {
@@ -10,23 +10,18 @@ interface Contributor {
   role: string;
 }
 
-export default function DashboardStats({ contributors, totalComponents }: { contributors: Contributor[], totalComponents: number }) {
+export default function DashboardStats({ 
+  contributors, 
+  totalComponents,
+  triviaCount = 0,
+  rpgCount = 0
+}: { 
+  contributors: Contributor[], 
+  totalComponents: number,
+  triviaCount?: number,
+  rpgCount?: number
+}) {
   
-  // Calculate the most popular tech stack
-  const languageCounts = contributors.reduce((acc, curr) => {
-    acc[curr.language] = (acc[curr.language] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-  
-  let topLanguage = 'None';
-  let maxCount = 0;
-  for (const [lang, count] of Object.entries(languageCounts)) {
-    if (count > maxCount) {
-      maxCount = count;
-      topLanguage = lang;
-    }
-  }
-
   const stats = [
     {
       title: "Total Contributors",
@@ -45,12 +40,20 @@ export default function DashboardStats({ contributors, totalComponents }: { cont
       border: "border-emerald-100 dark:border-emerald-900/50"
     },
     {
-      title: "Top Tech Stack",
-      value: topLanguage,
-      icon: Trophy,
-      color: "text-amber-600 dark:text-amber-400",
-      bg: "bg-amber-50 dark:bg-amber-900/20",
-      border: "border-amber-100 dark:border-amber-900/50"
+      title: "RPG Database Size",
+      value: rpgCount,
+      icon: Swords,
+      color: "text-red-600 dark:text-red-400",
+      bg: "bg-red-50 dark:bg-red-900/20",
+      border: "border-red-100 dark:border-red-900/50"
+    },
+    {
+      title: "Trivia Questions",
+      value: triviaCount,
+      icon: BrainCircuit,
+      color: "text-purple-600 dark:text-purple-400",
+      bg: "bg-purple-50 dark:bg-purple-900/20",
+      border: "border-purple-100 dark:border-purple-900/50"
     }
   ];
 
@@ -59,7 +62,7 @@ export default function DashboardStats({ contributors, totalComponents }: { cont
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1, duration: 0.5 }}
-      className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-8"
     >
       {stats.map((stat) => {
         const Icon = stat.icon;
