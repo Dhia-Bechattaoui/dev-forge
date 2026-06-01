@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-06-01
+
+### Added
+- **CSS Layout Puzzle Game**: Launched a new interactive layout challenge game on the Games Hub. Contributors design puzzle levels in `data/css-puzzles.json`. The game features a live split-pane editor with a real-time CSS preview that animates boxes as the user types valid properties using Framer Motion layout animations.
+- **Strict CSS Validation Engine**: The puzzle engine parses raw CSS text and validates against a `requiredStyles` map, ensuring all required properties are present. Deleting a required base property (like `display: flex`) immediately un-solves the puzzle.
+- **Complete Documentation Overhaul**: Rewrote `README.md` and `CONTRIBUTING.md` from scratch to document all contribution pathways — contributor profiles, trivia questions, CodeBot stats, DevType snippets, CSS puzzle levels, and RPG monsters/items/quests — each with copy-pasteable JSON schemas and field explanations.
+
+### Fixed
+- **CSS Puzzle Editor Overlap**: Replaced the broken absolute-positioned `#container {` label in the code editor with a proper stacked flex-column layout, eliminating text overlap with the textarea.
+
 ## [1.4.0] - 2026-06-01
 
 ### Added
@@ -57,6 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Dynamic Dashboard UI**: Built `src/app/page.tsx` to automatically read and display contributor data and render advanced community components dynamically.
 - **Onboarding Documentation**: Added a comprehensive `README.md` and a step-by-step beginner `CONTRIBUTING.md` guide.
 
+[1.5.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Dhia-Bechattaoui/dev-forge/compare/v1.1.0...v1.2.0

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "p1",
+    "title": "Center the Div",
+    "author": "Dhia-Bechattaoui",
+    "description": "Use Flexbox to perfectly center the child square inside the container.",
+    "initialCss": "display: flex;\n",
+    "htmlStructure": "<div class='box box-1'></div>",
+    "requiredStyles": {
+      "display": "flex",
+      "justify-content": "center",
+      "align-items": "center"
+    }
+  },
+  {
+    "id": "p2",
+    "title": "Space Them Out",
+    "author": "Dhia-Bechattaoui",
+    "description": "Use Flexbox to evenly space the three boxes across the entire width of the container, with space between them.",
+    "initialCss": "display: flex;\n",
+    "htmlStructure": "<div class='box box-1'></div><div class='box box-2'></div><div class='box box-3'></div>",
+    "requiredStyles": {
+      "display": "flex",
+      "justify-content": "space-between"
+    }
+  },
+  {
+    "id": "p3",
+    "title": "Column Alignment",
+    "author": "Dhia-Bechattaoui",
+    "description": "Stack the three boxes vertically and center them horizontally.",
+    "initialCss": "display: flex;\n",
+    "htmlStructure": "<div class='box box-1'></div><div class='box box-2'></div><div class='box box-3'></div>",
+    "requiredStyles": {
+      "display": "flex",
+      "flex-direction": "column",
+      "align-items": "center"
+    }
+  }
+]

@@ -1,55 +1,73 @@
 # DevForge
 
-Welcome to **DevForge** — the fully automated, beginner-friendly open-source playground! 
+> The open-source playground where every feature is powered by community contributions.
 
-Have you ever wanted to contribute to open source but felt intimidated? Are you looking for a safe, easy place to make your very first Pull Request? You are in the right place! 
+DevForge is a live, interactive developer platform built with **Next.js 15**. Every game you can play, every card on the dashboard, and every trivia question you answer was contributed by someone just like you. This is a safe, beginner-friendly space to learn Git, GitHub, and open-source collaboration.
 
-Our goal is to help developers of all skill levels learn Git, GitHub, and Open Source collaboration.
+---
 
-## How it Works
+## What Can You Contribute?
 
-DevForge is a live Next.js dashboard. Whenever a contributor adds their information to our data file, our automated GitHub Actions validate the code, automatically approve the Pull Request, and instantly publish their "Contributor Card" to the live website!
+| Contribution Type | Difficulty | What You Need |
+|---|---|---|
+| Add your Contributor Profile | Beginner | GitHub account only |
+| Add a Trivia Question | Beginner | Basic JSON |
+| Submit a CodeBot | Beginner | Basic JSON |
+| Add a Typing Snippet | Beginner | Basic JSON + some code |
+| Design a CSS Puzzle Level | Intermediate | CSS knowledge |
+| Add an RPG Monster / Item / Quest | Beginner | Basic JSON |
+| Build a Community React Component | Advanced | React, TypeScript, Tailwind |
 
-### Beginner Tier: Add Your Name to the Wall!
-You can make your first open-source contribution in less than 2 minutes without writing any code. All you need to do is edit a simple JSON file.
+**[Read the full step-by-step Contribution Guide →](CONTRIBUTING.md)**
 
-**[Click here to read the Step-by-Step Beginner Guide!](CONTRIBUTING.md)**
+---
 
-### Advanced Tier: Build a Component!
-If you already know React, TypeScript, and Tailwind CSS, you can show off your skills by submitting a custom UI Component to the `components/community/` directory!
+## Interactive Games Hub
 
-1. Fork the repo and clone it locally.
-2. Run `npm install` and `npm run dev`.
-3. Create a stunning new component in `components/community/`.
-4. Open a PR and our automated systems will review your code!
+DevForge hosts a collection of community-powered mini-games at `/games`. Every game is data-driven — just add entries to a JSON file to expand the content!
+
+| Game | Data File | What it Does |
+|---|---|---|
+| **DevForge Trivia** | `data/trivia.json` | Community trivia questions |
+| **CodeBot Auto-Battler** | `data/bots.json` | Submit a stat-based combat bot |
+| **DevType** | `data/snippets.json` | Type code snippets, test your WPM |
+| **CSS Puzzle Game** | `data/css-puzzles.json` | Design layout challenges |
+| **DevQuest RPG** | `data/rpg/` | Monsters, items, and quests |
+
+---
 
 ## Public Developer API
 
-DevForge provides public, open REST API endpoints so you can fetch our community-driven data and use it in your own external applications! All endpoints support CORS.
+All DevForge game data is exposed via open, CORS-enabled REST endpoints. Use them in your own projects!
 
-### Contributor API
 ```javascript
-// Fetch the list of DevForge contributors
-const response = await fetch('https://dev-forge.bechattaoui.dev/api/contributors');
-const { data, count } = await response.json();
+// Contributor list
+const res = await fetch('https://dev-forge.bechattaoui.dev/api/contributors');
+const { data, count } = await res.json();
+
+// Trivia Questions
+const trivia = await fetch('https://dev-forge.bechattaoui.dev/api/games/trivia').then(r => r.json());
+
+// DevQuest RPG Data
+const monsters = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/monsters').then(r => r.json());
+const items    = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/items').then(r => r.json());
+const quests   = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/quests').then(r => r.json());
 ```
-
-### Game Data APIs
-```javascript
-// Fetch Trivia Questions
-const trivia = await fetch('https://dev-forge.bechattaoui.dev/api/games/trivia').then(res => res.json());
-
-// Fetch DevQuest RPG Data
-const monsters = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/monsters').then(res => res.json());
-const items = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/items').then(res => res.json());
-const quests = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/quests').then(res => res.json());
-```
-
-## Built With
-- **Next.js 15** (App Router)
-- **React 19**
-- **Tailwind CSS**
-- **GitHub Actions** (Fully automated CI/CD pipeline)
 
 ---
-*If you like this project, please consider giving it a Star to help other beginners find it!*
+
+## Tech Stack
+
+| Technology | Version | Purpose |
+|---|---|---|
+| Next.js | 15 (App Router) | Framework |
+| React | 19 | UI Library |
+| TypeScript | 5 | Type Safety |
+| Tailwind CSS | 4 | Styling |
+| Framer Motion | latest | Animations |
+| Vitest | latest | Automated Testing |
+| GitHub Actions | — | CI/CD Pipeline |
+
+---
+
+*If you find DevForge useful, please give it a ⭐ Star to help other developers discover it!*
