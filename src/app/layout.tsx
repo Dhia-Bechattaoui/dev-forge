@@ -51,14 +51,14 @@ export default function RootLayout({
             <div className="hidden md:flex flex-shrink-0">
               <Sidebar />
             </div>
-            
+
             {/* Main Content Area */}
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
               {/* Top Navigation */}
               <header className="h-16 flex items-center justify-end px-8 border-b border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-950/50 backdrop-blur-sm z-10">
                 <ThemeToggle />
               </header>
-              
+
               {/* Scrollable Content */}
               <main className="flex-1 overflow-y-auto p-4 sm:p-8">
                 <div className="max-w-5xl mx-auto space-y-12">

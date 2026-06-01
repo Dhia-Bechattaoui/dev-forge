@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Users, Component, TerminalSquare } from 'lucide-react';
+import { LayoutDashboard, Users, Component, TerminalSquare, Gamepad2 } from 'lucide-react';
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -11,6 +11,7 @@ export default function Sidebar() {
     { name: 'Dashboard', href: '/', icon: LayoutDashboard },
     { name: 'Contributors', href: '/contributors', icon: Users },
     { name: 'Showcase', href: '/showcase', icon: Component },
+    { name: 'Games', href: '/games', icon: Gamepad2 },
   ];
 
   return (
@@ -29,16 +30,14 @@ export default function Sidebar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                isActive
+              className={`flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${isActive
                   ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
                   : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-white'
-              }`}
+                }`}
             >
               <Icon
-                className={`flex-shrink-0 -ml-1 mr-3 h-5 w-5 ${
-                  isActive ? 'text-blue-700 dark:text-blue-300' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-500'
-                }`}
+                className={`flex-shrink-0 -ml-1 mr-3 h-5 w-5 ${isActive ? 'text-blue-700 dark:text-blue-300' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-500'
+                  }`}
               />
               <span className="truncate">{item.name}</span>
             </Link>
@@ -47,8 +46,8 @@ export default function Sidebar() {
       </nav>
 
       <div className="p-4 border-t border-gray-200 dark:border-gray-800">
-        <a 
-          href="https://github.com/Dhia-Bechattaoui/dev-forge" 
+        <a
+          href="https://github.com/Dhia-Bechattaoui/dev-forge"
           target="_blank"
           rel="noreferrer"
           className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-transparent rounded-xl hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"

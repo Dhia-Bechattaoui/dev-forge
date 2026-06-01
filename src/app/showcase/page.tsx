@@ -15,9 +15,9 @@ export default function ShowcasePage() {
               <span className="text-lg font-bold text-gray-800 dark:text-gray-200">
                 {item.name}
               </span>
-              <a 
-                href={`https://github.com/${item.author}`} 
-                target="_blank" 
+              <a
+                href={`https://github.com/${item.author}`}
+                target="_blank"
                 rel="noreferrer"
                 className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full transition-colors"
               >
@@ -25,8 +25,8 @@ export default function ShowcasePage() {
                 by @{item.author}
               </a>
             </div>
-            
-            <div className="p-4 sm:p-8 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow-sm flex items-center justify-center w-full">
+
+            <div className="w-full flex justify-center">
               {/* Render the community component dynamically */}
               <item.component />
             </div>

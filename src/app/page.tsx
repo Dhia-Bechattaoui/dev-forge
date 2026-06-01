@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <>
-      <motion.header 
+      <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -36,7 +36,7 @@ export default function Home() {
 
       <DashboardStats contributors={contributors} totalComponents={communityComponents.length} />
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
@@ -49,7 +49,7 @@ export default function Home() {
           </h3>
           <p className="text-gray-600 dark:text-gray-400">View the community wall and search for developers by tech stack.</p>
         </Link>
-        
+
         <Link href="/showcase" className="group p-8 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow-sm hover:shadow-md transition-all">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center justify-between">
             Advanced Showcase
