@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { communityComponents } from '@/components/community';
 
 // Define the interface for our contributor data
 interface Contributor {
@@ -57,6 +58,40 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Advanced Components Grid */}
+        <section className="pb-24">
+          <div className="border-t border-gray-200 pt-12">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Advanced Components Showcase</h2>
+            <p className="text-gray-600 mb-8">Custom React UI components built by experienced community contributors.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {communityComponents.map((item, idx) => (
+                <div key={idx} className="flex flex-col space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      {item.name}
+                    </span>
+                    <a 
+                      href={`https://github.com/${item.author}`} 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="text-sm text-blue-600 hover:underline flex items-center gap-2"
+                    >
+                      <img src={`https://github.com/${item.author}.png`} className="w-5 h-5 rounded-full" alt={item.author} />
+                      by @{item.author}
+                    </a>
+                  </div>
+                  
+                  <div className="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex items-center justify-center">
+                    {/* Render the community component dynamically */}
+                    <item.component />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
