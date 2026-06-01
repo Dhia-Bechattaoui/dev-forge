@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2026-06-01
 
 ### Added
+- **Automated UI Testing**: Integrated Vitest and React Testing Library (`jsdom`) to automatically test React components. Added `__tests__/DashboardStats.test.tsx` and updated the `validate.yml` GitHub Action to block any Pull Requests that fail the UI tests.
 - **Public Developer API**: Built a native Next.js 15 Route Handler (`/api/contributors`) that securely serves the open-source contributor database via a JSON endpoint with CORS headers. Added documentation in the README for external integrations.
 - **Global Analytics Banner**: Built a dynamic `DashboardStats` component that calculates and displays Total Contributors, Total Community Widgets, and the Top Tech Stack in real-time.
 - **Live Search & Filtering**: Refactored the contributor grid into an interactive Client Component (`ContributorsGrid.tsx`) featuring a live search bar that instantly filters by name, role, language, or GitHub username. Added Framer Motion `layout` animations for smooth grid resizing during searches.
