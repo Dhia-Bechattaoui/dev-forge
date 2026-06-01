@@ -25,13 +25,24 @@ If you already know React, TypeScript, and Tailwind CSS, you can show off your s
 
 ## Public Developer API
 
-DevForge provides a public JSON endpoint so you can fetch our contributor data and use it in your own apps!
+DevForge provides public, open REST API endpoints so you can fetch our community-driven data and use it in your own external applications! All endpoints support CORS.
 
+### Contributor API
 ```javascript
 // Fetch the list of DevForge contributors
 const response = await fetch('https://dev-forge.bechattaoui.dev/api/contributors');
 const { data, count } = await response.json();
-console.log(`There are ${count} amazing developers!`);
+```
+
+### Game Data APIs
+```javascript
+// Fetch Trivia Questions
+const trivia = await fetch('https://dev-forge.bechattaoui.dev/api/games/trivia').then(res => res.json());
+
+// Fetch DevQuest RPG Data
+const monsters = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/monsters').then(res => res.json());
+const items = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/items').then(res => res.json());
+const quests = await fetch('https://dev-forge.bechattaoui.dev/api/games/rpg/quests').then(res => res.json());
 ```
 
 ## Built With

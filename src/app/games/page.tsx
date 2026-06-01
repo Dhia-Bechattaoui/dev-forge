@@ -15,9 +15,13 @@ export default function GamesPage() {
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-3">
           Interactive Games & Playground
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 max-w-3xl">
+        <p className="text-gray-600 dark:text-gray-400 max-w-3xl mb-4">
           Learn by playing, learn by contributing! Our games are powered entirely by open-source data. Add a question to the JSON files to expand the games.
         </p>
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-lg text-sm border border-blue-200 dark:border-blue-800">
+          <span className="font-bold">Public Developer API Live!</span>
+          <span>You can fetch all of this game data to build your own apps. See the README for the REST endpoints.</span>
+        </div>
       </header>
 
       <section className="mt-12">
