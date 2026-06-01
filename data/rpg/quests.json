@@ -1,0 +1,20 @@
+[
+  {
+    "id": "q1",
+    "title": "Clear the Cache",
+    "description": "Defeat 3 Syntax Error Slimes to prove your worth.",
+    "targetMonsterId": "m1",
+    "targetCount": 3,
+    "rewardItemId": "i3",
+    "author": "Dhia-Bechattaoui"
+  },
+  {
+    "id": "q2",
+    "title": "Plug the Leak",
+    "description": "The Memory Leak is consuming RAM. Defeat it 2 times.",
+    "targetMonsterId": "m2",
+    "targetCount": 2,
+    "rewardItemId": "i2",
+    "author": "Dhia-Bechattaoui"
+  }
+]

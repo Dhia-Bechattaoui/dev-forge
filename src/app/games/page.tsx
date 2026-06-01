@@ -7,6 +7,7 @@ export default function GamesPage() {
   const triviaQuestions = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/trivia.json'), 'utf8'));
   const rpgMonsters = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/monsters.json'), 'utf8'));
   const rpgItems = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/items.json'), 'utf8'));
+  const rpgQuests = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/rpg/quests.json'), 'utf8'));
 
   return (
     <div className="space-y-8 pb-12">
@@ -28,7 +29,7 @@ export default function GamesPage() {
         </div>
         
         <div className="w-full">
-          <DevQuest monsters={rpgMonsters} items={rpgItems} />
+          <DevQuest monsters={rpgMonsters} items={rpgItems} quests={rpgQuests} />
         </div>
       </section>
 
