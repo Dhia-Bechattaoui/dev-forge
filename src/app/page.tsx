@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { communityComponents } from '@/components/community';
+import * as motion from "framer-motion/client";
 
 // Define the interface for our contributor data
 interface Contributor {
@@ -21,23 +22,33 @@ export default function Home() {
       <main className="max-w-4xl mx-auto space-y-12">
         
         {/* Header Section */}
-        <header className="text-center space-y-4 pt-12">
+        <motion.header 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-4 pt-12"
+        >
           <h1 className="text-5xl font-extrabold text-gray-900 tracking-tight">
             Welcome to <span className="text-blue-600">DevForge</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             An automated open-source playground designed for developers of all skill levels. Add your name to the JSON file to appear on this wall!
           </p>
-        </header>
+        </motion.header>
 
         {/* Contributors Grid */}
-        <section>
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+        >
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Our Contributors</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {contributors.map((contributor) => (
-              <div 
+              <motion.div 
+                whileHover={{ y: -5 }}
                 key={contributor.github} 
-                className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200"
+                className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200"
               >
                 <div className="flex items-center space-x-4 mb-4">
                   {/* Fetching GitHub Avatar dynamically */}
@@ -56,10 +67,10 @@ export default function Home() {
                   <p><strong>Role:</strong> {contributor.role}</p>
                   <p><strong>Favorite Stack:</strong> {contributor.language}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Advanced Components Grid */}
         <section className="pb-24">
