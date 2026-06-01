@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Dedicated Routes**: Created dedicated full-page routes for `/contributors` and `/showcase` to give community content more breathing room. Refactored the root `/` path into a clean Dashboard Overview.
 - **Git & GitHub Interactive Cheat Sheet**: Built a highly interactive, beginner-friendly community component featuring an animated Git Data Flow diagram, search filtering, categorized tabs, and one-click command copying. Fully tested with Vitest.
 - **Interactive Games Hub**: Created a new `/games` route and Sidebar link to serve as a hub for community-built interactive games.
+- **Algorithm Visualizer Sandbox**: Built an interactive sandbox (`AlgorithmVisualizer.tsx`) that visually animates sorting algorithms (like Bubble Sort) in real-time using Framer Motion. Features playback controls, speed adjustment, and dynamic highlighting.
 - **The DevForge Trivia Engine**: Built an animated, data-driven Trivia Game (`TriviaGame.tsx`) powered by Framer Motion. Community members can now contribute by simply appending questions to `data/trivia.json`. Includes dynamic feedback for perfect scores and automated Vitest coverage.
 ## [1.1.0] - 2026-06-01
 

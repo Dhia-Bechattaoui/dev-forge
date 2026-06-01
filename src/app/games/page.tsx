@@ -8,7 +8,7 @@ export default function GamesPage() {
   const triviaQuestions = JSON.parse(fileContents);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pb-12">
       <header className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-3">
           Interactive Games & Playground
@@ -18,7 +18,7 @@ export default function GamesPage() {
         </p>
       </header>
 
-      <section className="mt-12">
+      <section className="mt-16">
         <div className="mb-6 flex justify-between items-end">
           <div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">DevForge Trivia Engine</h2>

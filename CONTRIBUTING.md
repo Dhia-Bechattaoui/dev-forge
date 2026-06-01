@@ -1,4 +1,4 @@
-# 📖 Beginner Contribution Guide
+# Beginner Contribution Guide
 
 Welcome to DevForge! If you have never made an open-source contribution before, this guide will walk you through exactly how to do it. It takes less than 2 minutes!
 
@@ -10,7 +10,7 @@ Click the **Fork** button in the top-right corner of this page to create your ow
 ## Step 2: Edit the Data File
 You can do this entirely in your browser!
 1. In your forked repository, navigate to `data/contributors.json`.
-2. Click the ✏️ pencil icon in the top right corner to edit the file.
+2. Click the pencil icon in the top right corner to edit the file.
 3. Scroll to the very bottom of the file.
 4. Add a comma `,` after the last closing brace `}`, and then paste your information like this:
 ```json
@@ -35,8 +35,8 @@ You can do this entirely in your browser!
 4. Add the label `good-first-issue` or `data-update` if possible.
 5. Click **Create pull request**!
 
-## 🎉 What Happens Next?
+## What Happens Next?
 Our robot reviewer will immediately check your JSON file to make sure it is formatted correctly. 
 If it looks good, the robot will automatically approve your PR and merge it! 
 
-Congratulations on your contribution! 🌸
+Congratulations on your contribution!
