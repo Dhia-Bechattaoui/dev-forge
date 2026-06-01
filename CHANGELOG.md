@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-06-01
+
+### Added
+- **Scalable UI Architecture**: Transitioned the single-page application into a multi-page routing system. Introduced a persistent `Sidebar` component for global navigation.
+- **Dedicated Routes**: Created dedicated full-page routes for `/contributors` and `/showcase` to give community content more breathing room. Refactored the root `/` path into a clean Dashboard Overview.
+- **Git & GitHub Interactive Cheat Sheet**: Built a highly interactive, beginner-friendly community component featuring an animated Git Data Flow diagram, search filtering, categorized tabs, and one-click command copying. Fully tested with Vitest.
+
 ## [1.1.0] - 2026-06-01
 
 ### Added

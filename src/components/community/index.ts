@@ -1,5 +1,6 @@
 import ExampleCard from './ExampleCard';
 import GithubStatsCard from './GithubStatsCard';
+import GitCheatSheet from './GitCheatSheet';
 
 // When contributors add a new component to this folder, 
 // they simply import it above and add it to this array!
@@ -12,6 +13,11 @@ export const communityComponents = [
   {
     name: 'GithubStatsCard',
     component: GithubStatsCard,
+    author: 'Dhia-Bechattaoui',
+  },
+  {
+    name: 'GitCheatSheet',
+    component: GitCheatSheet,
     author: 'Dhia-Bechattaoui',
   }
 ];

@@ -4,5 +4,11 @@
     "github": "Dhia-Bechattaoui",
     "language": "TypeScript",
     "role": "Founder"
+  },
+  {
+    "name": "Antigravity AI",
+    "github": "google-deepmind",
+    "language": "JavaScript",
+    "role": "AI Assistant"
   }
 ]
