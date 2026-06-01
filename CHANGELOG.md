@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2026-06-01
 
 ### Added
+- **Public Developer API**: Built a native Next.js 15 Route Handler (`/api/contributors`) that securely serves the open-source contributor database via a JSON endpoint with CORS headers. Added documentation in the README for external integrations.
 - **Global Analytics Banner**: Built a dynamic `DashboardStats` component that calculates and displays Total Contributors, Total Community Widgets, and the Top Tech Stack in real-time.
 - **Live Search & Filtering**: Refactored the contributor grid into an interactive Client Component (`ContributorsGrid.tsx`) featuring a live search bar that instantly filters by name, role, language, or GitHub username. Added Framer Motion `layout` animations for smooth grid resizing during searches.
 - **Dark Mode Support**: Fully integrated `next-themes` and added a custom `ThemeToggle` component to the dashboard header. Fixed global Tailwind CSS v4 variables to support manual dark mode toggling.

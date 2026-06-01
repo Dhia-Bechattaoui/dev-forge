@@ -23,6 +23,17 @@ If you already know React, TypeScript, and Tailwind CSS, you can show off your s
 3. Create a stunning new component in `components/community/`.
 4. Open a PR and our automated systems will review your code!
 
+## 🔌 Public Developer API
+
+DevForge provides a public JSON endpoint so you can fetch our contributor data and use it in your own apps!
+
+```javascript
+// Fetch the list of DevForge contributors
+const response = await fetch('https://dev-forge.bechattaoui.dev/api/contributors');
+const { data, count } = await response.json();
+console.log(`There are ${count} amazing developers!`);
+```
+
 ## ⚙️ Built With
 - **Next.js 15** (App Router)
 - **React 19**
