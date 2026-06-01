@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 DevForge
 
-## Getting Started
+Welcome to **DevForge** — the fully automated, beginner-friendly open-source playground! 
 
-First, run the development server:
+Have you ever wanted to contribute to open source but felt intimidated? Are you looking for a safe, easy place to make your very first Pull Request? You are in the right place! 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Our goal is to help developers of all skill levels learn Git, GitHub, and Open Source collaboration.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 How it Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+DevForge is a live Next.js dashboard. Whenever a contributor adds their information to our data file, our automated GitHub Actions validate the code, automatically approve the Pull Request, and instantly publish their "Contributor Card" to the live website!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 👶 Beginner Tier: Add Your Name to the Wall!
+You can make your first open-source contribution in less than 2 minutes without writing any code. All you need to do is edit a simple JSON file.
 
-## Learn More
+👉 **[Click here to read the Step-by-Step Beginner Guide!](CONTRIBUTING.md)**
 
-To learn more about Next.js, take a look at the following resources:
+### 🧑‍💻 Advanced Tier: Build a Component!
+If you already know React, TypeScript, and Tailwind CSS, you can show off your skills by submitting a custom UI Component to the `components/community/` directory!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the repo and clone it locally.
+2. Run `npm install` and `npm run dev`.
+3. Create a stunning new component in `components/community/`.
+4. Open a PR and our automated systems will review your code!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚙️ Built With
+- **Next.js 15** (App Router)
+- **React 19**
+- **Tailwind CSS**
+- **GitHub Actions** (Fully automated CI/CD pipeline)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*If you like this project, please consider giving it a ⭐ Star to help other beginners find it!*
