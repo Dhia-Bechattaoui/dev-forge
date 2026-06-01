@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2026-06-01
 
 ### Added
+- **Global Analytics Banner**: Built a dynamic `DashboardStats` component that calculates and displays Total Contributors, Total Community Widgets, and the Top Tech Stack in real-time.
+- **Live Search & Filtering**: Refactored the contributor grid into an interactive Client Component (`ContributorsGrid.tsx`) featuring a live search bar that instantly filters by name, role, language, or GitHub username. Added Framer Motion `layout` animations for smooth grid resizing during searches.
 - **Dark Mode Support**: Fully integrated `next-themes` and added a custom `ThemeToggle` component to the dashboard header. Fixed global Tailwind CSS v4 variables to support manual dark mode toggling.
 - **Advanced Animations**: Installed `framer-motion` to add smooth, premium entry and hover animations to the main dashboard layout and contributor cards.
 - **Interactive Community Widget**: Built the `GithubStatsCard`, which fetches and displays real-time GitHub repository and follower counts from the GitHub API. Added it to the Advanced Component Showcase.

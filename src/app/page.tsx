@@ -3,6 +3,8 @@ import path from 'path';
 import { communityComponents } from '@/components/community';
 import * as motion from "framer-motion/client";
 import ThemeToggle from '@/components/ThemeToggle';
+import ContributorsGrid from '@/components/ContributorsGrid';
+import DashboardStats from '@/components/DashboardStats';
 
 // Define the interface for our contributor data
 interface Contributor {
@@ -43,40 +45,17 @@ export default function Home() {
           </p>
         </motion.header>
 
-        {/* Contributors Grid */}
+        {/* Global Analytics Banner */}
+        <DashboardStats contributors={contributors} totalComponents={communityComponents.length} />
+
+        {/* Interactive Contributors Grid */}
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">Our Contributors</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {contributors.map((contributor) => (
-              <motion.div 
-                whileHover={{ y: -5 }}
-                key={contributor.github} 
-                className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-all duration-200"
-              >
-                <div className="flex items-center space-x-4 mb-4">
-                  {/* Fetching GitHub Avatar dynamically */}
-                  <img 
-                    src={`https://github.com/${contributor.github}.png`} 
-                    alt={`${contributor.name}'s avatar`} 
-                    className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700"
-                  />
-                  <div>
-                    <h3 className="font-bold text-gray-900 dark:text-gray-100">{contributor.name}</h3>
-                    <p className="text-sm text-blue-600 dark:text-blue-400">@{contributor.github}</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                  <p><strong className="dark:text-gray-300">Role:</strong> {contributor.role}</p>
-                  <p><strong className="dark:text-gray-300">Favorite Stack:</strong> {contributor.language}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <ContributorsGrid contributors={contributors} />
         </motion.section>
 
         {/* Advanced Components Grid */}
