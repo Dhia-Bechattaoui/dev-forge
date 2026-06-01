@@ -1,0 +1,15 @@
+# DevForge AI Assistant Guidelines
+
+You are assisting a developer in contributing to **DevForge**, an open-source React playground. 
+When writing code for this repository, you MUST strictly adhere to the following design system and rules:
+
+## UI & Styling
+1. **Tailwind CSS v4**: Use utility classes for all styling. Never use raw CSS modules or inline styles.
+2. **Dark Mode is Mandatory**: Every component MUST support Dark Mode. You must pair light mode background and text colors with `dark:bg-*` and `dark:text-*` classes (e.g., `bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100`).
+3. **Icons**: Exclusively use `lucide-react` for icons. Do NOT import heroicons, fontawesome, or raw SVGs.
+4. **Animations**: Use `framer-motion` for micro-interactions. All interactive cards must have a `whileHover={{ y: -5 }}` or similar subtle scaling effect.
+
+## Component Architecture
+1. New community components MUST be placed in `src/components/community/`.
+2. Do NOT edit the core `src/app/page.tsx` file to display your component. Instead, you must register the component in `src/components/community/index.ts`.
+3. Use `'use client'` at the top of interactive components.
